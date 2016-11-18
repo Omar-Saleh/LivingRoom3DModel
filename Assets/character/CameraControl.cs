@@ -66,7 +66,7 @@ public class CameraControl : MonoBehaviour {
 
         defaultFOV = cam.GetComponent<Camera>().fieldOfView;
  
-            if(System.Math.Abs(transform.rotation.y - player.rotation.y) >= 1)
+            if(System.Math.Abs(transform.rotation.y - player.rotation.y) >= 0.1)
                 angleH += Mathf.Clamp(player.rotation.y, -1, 1) * horizontalAimingSpeed * Time.deltaTime;
             angleV += Mathf.Clamp(0, -1, 1) * verticalAimingSpeed * Time.deltaTime;
 
