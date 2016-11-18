@@ -10,13 +10,19 @@ public class walk : MonoBehaviour {
 	public GameObject character;
 	private bool right;
 	private bool left;
-	void Start () {
-		anim = GetComponent<Animator> ();
-	}
-	
+    public GameObject camera;
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+
+    }
 	// Update is called once per frame
 	void Update () {
-		anim.SetBool ("w", walkFlag);
+
+       // camera.transform.position = new Vector3(transform.position.x , 2.5f, transform.position.z-5);
+
+
+        anim.SetBool ("w", walkFlag);
 		anim.SetBool ("s", backFlag);
 		if (Input.GetKeyDown (KeyCode.W)) {
 			print ("HELLO");
@@ -47,11 +53,13 @@ public class walk : MonoBehaviour {
 
 		if (right) {
 			character.transform.Rotate(Vector3.up * Time.deltaTime*100);
+           
 
-		}
-		if (left) {
-			character.transform.Rotate(Vector3.up * -Time.deltaTime*100);
+        }
+        if (left) {
 
-		}
-	}
+            character.transform.Rotate(Vector3.up * -Time.deltaTime*100);
+
+        }
+    }
 }
